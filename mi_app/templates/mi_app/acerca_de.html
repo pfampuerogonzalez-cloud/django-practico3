@@ -1,0 +1,27 @@
+{% extends "mi_app/base.html" %}
+
+{% block title %}Acerca de{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <h2>Acerca de {{ nombre_app }}</h2>
+        <p>Versión: <strong>{{ version }}</strong></p>
+
+        <h4>Características</h4>
+        <ul>
+            {% for c in caracteristicas %}
+                <li>{{ c }}</li>
+            {% endfor %}
+        </ul>
+
+        {% if mostrar_creditos %}
+            <hr>
+            <p class="text-muted">
+                Desarrollado con Django {{ version }} · 
+                <a href="{% url 'formulario' %}">Volver al formulario</a>
+            </p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
